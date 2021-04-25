@@ -2,6 +2,10 @@
 
 https://lvgl.io/tools/imageconverter
 
+then reversing the row order.
+
+must be drawn using modified oledLoadBYTES()
+
 */
 
 const byte bImgCpLo[] PROGMEM = {
