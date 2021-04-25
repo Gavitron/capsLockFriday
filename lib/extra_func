@@ -1,0 +1,52 @@
+
+
+int oled_dump_gif(SSOLED *pOLED, uint8_t *pBMP, int bInvert, int bRender);
+
+
+int oled_dump_gif(SSOLED *pOLED, uint8_t *pBMP, int bInvert, int bRender)
+{
+int16_t i16;
+int iOffBits, q, y, j; // offset to bitmap data
+int iPitch;
+uint8_t x, z, b, *s;
+uint8_t dst_mask;
+uint8_t ucTemp[16]; // process 16 bytes at a time
+
+uint8_t bFlipped = false;
+
+if (bFlipped)
+{
+  iPitch = -16;
+  iOffBits += (31 * 16); // start from bottom
+}
+
+// rotate the data and send it to the display
+  for (y=0; y<8; y++) // 8 lines of 8 pixels
+  {
+     oledSetPosition(pOLED, 0, y, bRender);
+     for (j=0; j<8; j++) // do 8 sections of 16 columns
+     {
+         s = &pBMP[iOffBits + (j*2) + (y * iPitch*8)]; // source line
+         memset(ucTemp, 0, 16); // start with all black
+         for (x=0; x<16; x+=8) // do each block of 16x8 pixels
+         {
+            dst_mask = 1;
+            for (q=0; q<8; q++) // gather 8 rows
+            {
+               b = pgm_read_byte(s + (q * iPitch));
+               for (z=0; z<8; z++) // gather up the 8 bits of this column
+               {
+                  if (b & 0x80)
+                      ucTemp[x+z] |= dst_mask;
+                  b <<= 1;
+               } // for z
+               dst_mask <<= 1;
+            } // for q
+            s++; // next source byte
+         } // for x
+         if (bInvert) InvertBytes(ucTemp, 16);
+         oledWriteDataBlock(pOLED, ucTemp, 16, bRender);
+     } // for j
+  } // for y
+  return 0;
+} /* oledLoadBMP() */

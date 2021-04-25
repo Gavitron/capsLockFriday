@@ -1,0 +1,161 @@
+#include <Arduino.h>
+#include <ss_oled.h>
+#include <HID-Project.h>
+
+//  need to install Karabiner on osx to solve, per https://github.com/NicoHood/HID/issues/142  
+//   https://karabiner-elements.pqrs.org/
+
+
+// else try: https://github.com/NicoHood/HID/issues/97
+
+
+
+/// Setup for the OLED library
+//--------------
+#define USE_BACKBUFFER
+static uint8_t ucBackBuffer[512];
+
+// Use -1 for the Wire library default pins
+// or specify the pin numbers to use with the Wire library or bit banging on any GPIO pins
+// These are the pin numbers for the M5Stack Atom default I2C
+//#define SDA_PIN 2
+//#define SCL_PIN 3
+// Set this to -1 to disable or the GPIO pin number connected to the reset
+// line of your display if it requires an external reset
+#define RESET_PIN -1
+// let ss_oled figure out the display address
+#define OLED_ADDR 0x3C
+// don't rotate the display
+#define FLIP180 0
+// don't invert the display
+#define INVERT 0
+// Bit-Bang the I2C bus
+#define USE_HW_I2C 1
+
+// Change these if you're using a different OLED display
+#define MY_OLED OLED_128x32
+#define OLED_WIDTH 128
+#define OLED_HEIGHT 32
+
+SSOLED ssoled;
+
+/*
+  Generate this file with the following command:
+  ./tcomp --top 0 --left 0 --in img/capslock_anim.gif --out img/capslock_anim.ino --c
+*/
+//#define BAD_DISPLAY
+#include "../img/capslock_anim.ino"
+
+// ----------
+
+const int pinSDA = 2;
+const int pinSCL = 3;
+const int pinLed = 5;
+const int pinButton = 6;
+
+/// =============================
+
+void setup() {
+  pinMode(pinLed, OUTPUT);
+  pinMode(pinButton, INPUT_PULLUP);
+
+  // Sends a clean report to the host. This is important on any Arduino type.
+  BootKeyboard.begin();
+
+  int rc;
+  rc = oledInit(&ssoled, MY_OLED, OLED_ADDR, FLIP180, INVERT, USE_HW_I2C, pinSDA, pinSCL, RESET_PIN, 400000L); // use standard I2C bus at 400Khz
+  if (rc != OLED_NOT_FOUND) {
+    char *msgs[] = {(char *)"SSD1306 @ 0x3C", (char *)"SSD1306 @ 0x3D",(char *)"SH1106 @ 0x3C",(char *)"SH1106 @ 0x3D"};
+    oledFill(&ssoled, 0, 1);
+    oledWriteString(&ssoled, 0,0,0,msgs[rc], FONT_NORMAL, 0, 1);
+    oledSetBackBuffer(&ssoled, ucBackBuffer);
+    delay(50);
+
+    oledFill(&ssoled, 0x0, 1);
+    oledWriteString(&ssoled, 0,0,0,(char *)"CAPSLOCK", FONT_STRETCHED, 0, 1);
+    oledWriteString(&ssoled, 0,0,2,(char *)"2021 by Gavitron", FONT_NORMAL, 0, 1);
+    oledWriteString(&ssoled, 0,0,3,(char *)"    <me@gavitron.com>  ", FONT_SMALL, 0, 1);
+    delay(2000);
+  }
+
+  // Flash LED
+  digitalWrite(pinLed, LOW);
+  for (int i = 0; i < 5; i++) {
+    delay(60);
+    digitalWrite(pinLed, HIGH);
+    delay(60);
+    digitalWrite(pinLed, LOW);
+    //BootKeyboard.write('z/');
+  }
+  oledFill(&ssoled, 0, 1);
+}
+
+/// =============================
+
+void loop() {
+  //static uint8_t *pAnim = (uint8_t *)bAnimation; // point to first frame
+  static uint8_t prev_led_state = -1;
+  static uint8_t led_state = -1;
+  static uint8_t *pAnim = (uint8_t *)bAnimation; // point to first frame
+
+  // Trigger caps lock manually via button
+  if (!digitalRead(pinButton)) {
+    BootKeyboard.write(KEY_CAPS_LOCK);
+    delay(300);  // lazy debouncer
+  }
+
+  // Update Led equal to the caps lock state.
+  // Keep in mind that on a 16u2 and Arduino Micro HIGH and LOW for TX/RX Leds are inverted.
+  prev_led_state = led_state;
+  led_state = BootKeyboard.getLeds();
+
+  if (led_state != prev_led_state) {
+    if (led_state & LED_CAPS_LOCK) {
+      // set CAPS LED
+      digitalWrite(pinLed, HIGH);
+      // do a little CAPSLOCK dance.
+      oledFill(&ssoled, 0x00, 1);
+      pAnim = oledPlayAnimFrame(&ssoled, (uint8_t *)bAnimation, pAnim, sizeof(bAnimation));
+    } else {
+      // unset CAPS LED
+      digitalWrite(pinLed, LOW);
+      // blank the screen
+      oledFill(&ssoled, 0x0, 1);
+    }  // end evaluate CAPS state
+  }  // end LED changed
+}
+
+
+
+
+// static uint8_t *pAnim = (uint8_t *)bAnimation; // point to first frame
+//
+//   while (1)
+//   { // play all frames (automatically starts over when it reaches the end)
+//     pAnim = oledPlayAnimFrame(&ssoled, (uint8_t *)bAnimation, pAnim, sizeof(bAnimation));
+//     delay(20);
+//   }
+//
+//for(int i=0;i < 22;i++) {
+      //pAnim = oledPlayAnimFrame(&ssoled, (uint8_t *)bAnimation, pAnim, sizeof(bAnimation));
+    //}
+//      for(int i=0;i < 3;i++) {
+//        oledFill(&ssoled, 0x0, 1);
+//        delay(100);
+//        oledLoadBMP(&ssoled, (uint8_t *)capsBmp, 0, 1);
+//        delay(100);
+//      }
+
+
+//        oledLoadBMP(&ssoled, (uint8_t *)capsBmp, 0, 1);
+
+
+
+
+
+
+
+
+
+
+//

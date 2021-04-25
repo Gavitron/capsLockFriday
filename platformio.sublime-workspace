@@ -1,0 +1,498 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"IE",
+				"IR_SEND_PIN"
+			],
+			[
+				"ir",
+				"irsend"
+			],
+			[
+				"TFT",
+				"TFT_RED"
+			],
+			[
+				"mel",
+				"melody_size"
+			],
+			[
+				"buzz",
+				"buzz_channel"
+			],
+			[
+				"BUZ",
+				"BUZZER_PIN"
+			],
+			[
+				"aws",
+				"awsvpc"
+			],
+			[
+				"AUtom",
+				"automation"
+			],
+			[
+				"vend",
+				"vendsetter-com"
+			],
+			[
+				"s3",
+				"s3"
+			],
+			[
+				"minecraft",
+				"minecraft"
+			],
+			[
+				"Joel",
+				"Joel"
+			],
+			[
+				"team",
+				"team"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "PlatformIO",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"PlatformIO",
+					""
+				],
+				[
+					"PlatformIO",
+					"Build"
+				],
+				[
+					"PlatformIO",
+					"Upload"
+				],
+				[
+					"PlatformIO",
+					"Clean"
+				],
+				[
+					"PlatformIO",
+					"Test"
+				],
+				[
+					"PlatformIO",
+					"Upload using Programmer"
+				],
+				[
+					"PlatformIO",
+					"Upload SPIFFS image"
+				],
+				[
+					"PlatformIO",
+					"Update platforms and libraries"
+				],
+				[
+					"PlatformIO",
+					"Upgrade PlatformIO Core"
+				]
+			],
+			[
+				"PlatformIO",
+				"Build"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"upload",
+				"Build With: PlatformIO - Upload"
+			],
+			[
+				"monitor",
+				"Deviot: Start/Stop Monitor"
+			],
+			[
+				"upl",
+				"Build With: PlatformIO - Build"
+			],
+			[
+				"up",
+				"Build With: PlatformIO - Upload"
+			],
+			[
+				"platfor",
+				"Deviot: Use PlatformIO Structure"
+			],
+			[
+				"platform",
+				"Deviot: Open platformio.ini"
+			],
+			[
+				"bui",
+				"Build With: PlatformIO - Upload"
+			],
+			[
+				"build",
+				"Build With: PlatformIO - Build"
+			],
+			[
+				"uplo",
+				"Build With: PlatformIO - Upload"
+			],
+			[
+				"upla",
+				"Build With: PlatformIO - Upload"
+			],
+			[
+				"bu",
+				"Build With: PlatformIO - Upload"
+			],
+			[
+				"plat",
+				"Build With: PlatformIO - Upload"
+			],
+			[
+				"Deviot: ",
+				"Deviot: Select Board"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"jspr",
+				"JsPrettier: Format Code"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pretty",
+				"HTMLPrettify"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"syntax gro",
+				"Set Syntax: Groovy"
+			],
+			[
+				"convert",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"int",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"trai",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"pretti",
+				"HTMLPrettify"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/gavitron/Dropbox/projects/src/remote_repeater"
+	],
+	"file_history":
+	[
+		"/Users/gavitron/Dropbox/projects/src/remote_repeater/src/main.cpp",
+		"/Users/gavitron/Dropbox/projects/src/remote_repeater/platformio.ini",
+		"/Users/gavitron/Dropbox/projects/src/remote_repeater/main.cpp",
+		"/Users/gavitron/Dropbox/projects/src/pio/src/firsttry",
+		"/Users/gavitron/projects/runbook.s/hugo/content/redash/_index.md",
+		"/Users/gavitron/Dropbox/projects/src/pio/src/wifitracker",
+		"/Users/gavitron/Dropbox/projects/src/pio/.pio/libdeps/esp32dev/IRremote/src/esp32.cpp",
+		"/Users/gavitron/Dropbox/projects/src/pio/.pio/libdeps/esp32dev/TFT_eSPI/TFT_eSPI.h",
+		"/Users/gavitron/Dropbox/projects/src/pio/res/IRdec2.h",
+		"/Users/gavitron/Dropbox/projects/src/pio/res/dedsec.h",
+		"/Users/gavitron/Dropbox/projects/src/pio/res/IRdec.h",
+		"/Users/gavitron/Dropbox/projects/src/pio/src/bmp.h",
+		"/Users/gavitron/Dropbox/projects/src/pio/src/main.cpp",
+		"/Users/gavitron/projects/lqa-infrastructure/.git/MERGE_MSG",
+		"/Users/gavitron/projects/lqa-infrastructure/opsdocs/_index.md",
+		"/Users/gavitron/Downloads/dedsec.h.c",
+		"/Users/gavitron/Downloads/dedsec.h.bin",
+		"/Users/gavitron/Downloads/dedsec.h (1).c",
+		"/Users/gavitron/Dropbox/projects/src/pio/platformio.ini",
+		"/Users/gavitron/tmp/pingtool/ping_files/f.js",
+		"/Users/gavitron/tmp/pingtool/ping_files/script-1.1.0.js",
+		"/Users/gavitron/tmp/pingtool/ping.html",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/config.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key3_+.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key15_..txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key14_00.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key13_0.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key11_2.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key10_1.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key9_6.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key8_5.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key7_4.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key5_8.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key1_*.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key2_-.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile4_fusion360/key4_7.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/config.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key10_1.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key11_2.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key12_3.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key13_0.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key14_00.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key15_..txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key1_*.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key2_-.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key3_+.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key4_7.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key5_8.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key6_9.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key7_4.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key8_5.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/configurations/SD_card/profile15_demo/key9_6.txt",
+		"/Users/gavitron/Dropbox/work/personal/Housing/13374 McCauley Cres/doxxed_neighbor.txt",
+		"/Users/gavitron/Dropbox/projects/duckyPad/my_SD_card/profile1_duckypad12/rough.txt",
+		"/Users/gavitron/tmp/home.txt",
+		"/Users/gavitron/Dropbox/projects/src/twitsteg/test",
+		"/Users/gavitron/Dropbox/projects/src/twitsteg/creds2.py",
+		"/Users/gavitron/projects/sonabot/prod_release.sh",
+		"/Users/gavitron/Dropbox/work/keyes/atlassian.2fa",
+		"/Users/gavitron/Dropbox/projects/mek-kb/switches.txt",
+		"/Users/gavitron/projects/sonabot/hubot/node_modules/hubot-scripts/src/scripts/karma.coffee",
+		"/Users/gavitron/projects/sonabot/hubot/external-scripts.json",
+		"/Users/gavitron/projects/sonabot/hubot/package.json",
+		"/Users/gavitron/Dropbox/work/archived.txt",
+		"/Users/gavitron/Dropbox/work/EA/unsorted.txt",
+		"/Users/gavitron/projects/rds-snapshot-tool/LICENSE.txt",
+		"/Users/gavitron/projects/rds-snapshot-tool/LICENSE",
+		"/Users/gavitron/projects/hubot-bugzapper/README.md",
+		"/Users/gavitron/projects/sonabot/OpsDoc.md",
+		"/Users/gavitron/projects/sonabot/hubot/package-lock.json",
+		"/Users/gavitron/projects/hubot-bugzapper/index.coffee",
+		"/Users/gavitron/projects/hubot-bugzapper/package.json",
+		"/Users/gavitron/projects/hubot-bugzapper/package-lock.json",
+		"/Users/gavitron/projects/sonabot/hubot/node_modules/hubot-metricbot/src/metric-bot.coffee",
+		"/Users/gavitron/projects/sonabot/README.md",
+		"/Users/gavitron/.aws/config",
+		"/Users/gavitron/projects/hubot-metricbot/test/metric-bot_test.coffee",
+		"/Users/gavitron/.aws/credentials",
+		"/Users/gavitron/projects/hubot-metricbot/.git/MERGE_MSG",
+		"/Users/gavitron/projects/sonabot/hubot/node_modules/hubot-zalgo/zalgo.js",
+		"/Users/gavitron/projects/hubot-zalgo/package.json",
+		"/Users/gavitron/projects/sonabot/env.prod",
+		"/Users/gavitron/.bashrc",
+		"/Users/gavitron/projects/sonabot/hubot/release.sh",
+		"/Users/gavitron/projects/sonabot/.git/MERGE_MSG",
+		"/Users/gavitron/projects/sonabot/hubot/scripts/example.coffee",
+		"/Users/gavitron/projects/sonabot/env.list",
+		"/Users/gavitron/.aws/bho-config",
+		"/Users/gavitron/projects/sonabot/hubot/data/README.md",
+		"/Users/gavitron/projects/hubot-business-cat/test/businesscat_test.coffee",
+		"/Users/gavitron/projects/sonabot/Dockerfile",
+		"/Users/gavitron/projects/dns_validation/domain_list.txt",
+		"/Users/gavitron/projects/dns_validation/dns_tester.pl",
+		"/Users/gavitron/projects/awardmaker/docker-compose.dev.env.yml",
+		"/Users/gavitron/projects/awardmaker/.gitignore",
+		"/Users/gavitron/Dropbox/work/EVI/godaddy_DNS.txt",
+		"/Users/gavitron/Documents/meeting notes from SRE mk II",
+		"/Users/gavitron/projects/aws-configurator/account_creation/orchestrator.py",
+		"/Users/gavitron/projects/aws-configurator/opscli",
+		"/Users/gavitron/projects/automation_scripts/input/domain_list_sample.txt",
+		"/Users/gavitron/projects/automation_scripts/audit_users.py",
+		"/Users/gavitron/projects/automation_scripts/assume_role_list.py",
+		"/Users/gavitron/projects/new-ansible/inventory/prod/0hosts",
+		"/Users/gavitron/projects/gavitron.github.io/_posts/2019-11-11-Printrbot.md",
+		"/Users/gavitron/projects/gavitron.github.io/_posts/2019-09-25-Holidays.md",
+		"/Users/gavitron/projects/nextholiday/js/router.js",
+		"/Users/gavitron/projects/nextholiday/js/json/leave.json",
+		"/Users/gavitron/projects/nextholiday/js/json/combined.json",
+		"/Users/gavitron/projects/nextholiday/js/json/sonatype_holidays.json",
+		"/Users/gavitron/Dropbox/projects/newtekRS8/readbytes.py",
+		"/Users/gavitron/Dropbox/projects/newtekRS8/newtekIN.pl",
+		"/Users/gavitron/Dropbox/projects/src/misc/challengeBinaryStrings.pl",
+		"/Users/gavitron/Dropbox/projects/newtekRS8/newtek.pl",
+		"/Users/gavitron/Dropbox/projects/newtekRS8/serial.py",
+		"/Users/gavitron/Dropbox/projects/src/linkcheck/domain_list.txt",
+		"/Users/gavitron/Dropbox/projects/src/linkcheck/dns_tester.pl",
+		"/Users/gavitron/.pyenvs/opscli/bin/activate",
+		"/Users/gavitron/Dropbox/games/botw/shopping list.txt",
+		"/Users/gavitron/projects/blessed-test/dashboard.js",
+		"/Users/gavitron/projects/blessed-test/test.js",
+		"/Users/gavitron/Downloads/installer-config.txt",
+		"/Users/gavitron/tmp/home2.txt",
+		"/Volumes/hassos-boot/config.txt",
+		"/Volumes/hassos-boot/cmdline.txt",
+		"/Users/gavitron/Dropbox/projects/src/misc/emojiparser/out/re-sa.yaml",
+		"/Users/gavitron/projects/terraform-aws-ecs-fargate-app/README.md",
+		"/Users/gavitron/Dropbox/projects/src/misc/emojiparser/src/sa.log",
+		"/Users/gavitron/Dropbox/projects/src/misc/emojiparser/src/re-sa.log"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ledTimer",
+			"dn"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.deviot":
+	{
+		"height": 121.0
+	},
+	"output.exec":
+	{
+		"height": 263.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "PlatformIO",
+	"project": "platformio.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 251.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
