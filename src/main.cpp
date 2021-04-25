@@ -79,13 +79,16 @@ Timer<1, millis> timer;
 
 /// =============================
 
+// animation routine, meant to be called once per frame.
 bool capsAnim(bool restart=false) {
-  static int frameCounter=0;
+  static int frameCounter=0;  // static for obvious reasons
 
+  // reset the frame counter
   if (restart) {
     frameCounter = 0;
   }
 
+  // animation via case statement
   switch (frameCounter++) {
     case 1:
     case 3:
@@ -118,10 +121,11 @@ bool capsAnim(bool restart=false) {
     case 22:
       oledLoadBYTES(&ssoled, (uint8_t *)bImgCpLo, 1, 1);
       break;
+    // when we run out of frames, reset the counter and return false to stop the timer callback
     case 23:
     default:
-    frameCounter = 0;
-    return false;
+      frameCounter = 0;
+      return false;
   }
   return true;
 }
