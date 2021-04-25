@@ -1,7 +1,11 @@
+## These lines need to be added to these files:
 
+
+# .pio/libdeps/pro_micro_usb/ss_oled/src/ss_oled.h
 
 int oled_dump_gif(SSOLED *pOLED, uint8_t *pBMP, int bInvert, int bRender);
 
+# .pio/libdeps/pro_micro_usb/ss_oled/src/ss_oled.cpp
 
 int oled_dump_gif(SSOLED *pOLED, uint8_t *pBMP, int bInvert, int bRender)
 {
