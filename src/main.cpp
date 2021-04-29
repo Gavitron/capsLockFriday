@@ -72,6 +72,11 @@ const int pinSCL = 3;
 const int pinLed = 5;
 const int pinButton = 6;
 
+#define APPLE_KSA_MODE
+
+#ifdef APPLE_KSA_MODE
+  int keycount = 0;
+#endif
 // ----------
 
 // create a timer with 1 task and microsecond resolution
@@ -165,7 +170,20 @@ void loop() {
 
   // when the button is pressed, send a caps-lock key event to the host
   if (!digitalRead(pinButton)) {
-    BootKeyboard.write(KEY_CAPS_LOCK);
+    #ifdef APPLE_KSA_MODE
+    switch (keycount++) {
+      case 0:
+        BootKeyboard.write('z');
+        break;
+      case 1:
+        BootKeyboard.write('/');
+        break;
+      default:
+    #endif
+        BootKeyboard.write(KEY_CAPS_LOCK);
+    #ifdef APPLE_KSA_MODE
+    }
+    #endif
     delay(250);  // lazy debouncer
   }
 
