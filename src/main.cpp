@@ -72,7 +72,7 @@ const int pinSCL = 3;
 const int pinLed = 5;
 const int pinButton = 6;
 
-#define APPLE_KSA_MODE
+// #define APPLE_KSA_MODE
 
 #ifdef APPLE_KSA_MODE
   int keycount = 0;
@@ -133,6 +133,11 @@ bool capsAnim(bool restart=false) {
       return false;
   }
   return true;
+}
+
+// wrap it to get the right function template to suppress a compiler warning
+bool capsAnimTimer(void *) {
+  return capsAnim(false);
 }
 
 /// =============================
@@ -200,7 +205,7 @@ void loop() {
       // reset the caps animation
       capsAnim(true);
       // and then start animating, one frame every 100 ms
-      timer.every(100, capsAnim);
+      timer.every(100, capsAnimTimer);
     } else {
       // unset CAPS LED
       digitalWrite(pinLed, LOW);
