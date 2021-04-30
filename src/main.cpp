@@ -6,20 +6,22 @@ Cruise Control for Cool
 
 Basically a one-key keyboard that presses CAPS LOCK.  has a status LED and an OLED screen for feedback.
 
-note: on OSX, keyboard states like CAPSLOCK are managed independently, per device, so this keyboard would
-only capitalize the letters it sends, but it sends none. In order to fix this, you can install Karabiner:
+*/
+
+/// =============================
+
+/*/ Deal with some apple KB silliness
+
+   on OSX, keyboard states like CAPSLOCK are managed independently, per device,
+   so this keyboard would only capitalize the letters it sends, but with onlsends none. In order to fix this, you can install Karabiner:
     https://karabiner-elements.pqrs.org/
 
 more information available at https://github.com/NicoHood/HID/issues/142
 or else try the solution here: https://github.com/NicoHood/HID/issues/97
+// ----------  */
 
-*/
-
-#include <Arduino.h>
-#include <ss_oled.h>
-#include <HID-Project.h>
-#include <arduino-timer.h>
-
+// uncomment this to add the handling code for apple's KSA
+//#define APPLE_KSA_MODE
 
 /// Setup for the OLED library
 //--------------
@@ -31,19 +33,13 @@ or else try the solution here: https://github.com/NicoHood/HID/issues/97
 
 // use a backbuffer for faster redraw
 #define USE_BACKBUFFER
-static uint8_t ucBackBuffer[512];  // 512 == 128x32 pixels
+#define BACKBUFFER_SIZE  512  // 512 == 128x32 pixels
 
 // Bit-Bang the I2C bus
 #define USE_HW_I2C 1
 
 // let ss_oled figure out the display address
 #define OLED_ADDR 0x3C
-
-// Use -1 for the Wire library default pins
-// or specify the pin numbers to use with the Wire library or bit banging on any GPIO pins
-// These are the pin numbers for the M5Stack Atom default I2C
-//#define SDA_PIN 2
-//#define SCL_PIN 3
 
 // Set this to -1 to disable or the GPIO pin number connected to the reset
 // line of your display if it requires an external reset
@@ -55,15 +51,30 @@ static uint8_t ucBackBuffer[512];  // 512 == 128x32 pixels
 // don't invert the display
 #define INVERT 0
 
+// Use -1 for the Wire library default pins
+// or specify the pin numbers to use with the Wire library or bit banging on any GPIO pins
+// These are the pin numbers for the M5Stack Atom default I2C
+//#define SDA_PIN 2
+//#define SCL_PIN 3
+
 // this is for displays that don't wrap memory writes to the next line
-//   #define BAD_DISPLAY
+//#define BAD_DISPLAY
 
-// init the display
-SSOLED ssoled;
+/// =============================
 
-// load the animation frames
-#include "rawbytes.cpp"
+/// Now that everything's #define'd, load the libraries:
+// ----------
 
+#include <Arduino.h>
+#include <ss_oled.h>
+#include <arduino-timer.h>
+#include <HID-Project.h>
+
+#include "rawbytes.cpp"    // load the animation frames
+
+/// =============================
+
+/// Global Declarations:
 // ----------
 
 // declare the pin assignements
@@ -72,17 +83,22 @@ const int pinSCL = 3;
 const int pinLed = 5;
 const int pinButton = 6;
 
-// #define APPLE_KSA_MODE
-
-#ifdef APPLE_KSA_MODE
-  int keycount = 0;
-#endif
-// ----------
+// create the display objects
+SSOLED ssoled;
+static uint8_t ucBackBuffer[BACKBUFFER_SIZE];
 
 // create a timer with 1 task and microsecond resolution
 Timer<1, millis> timer;
 
+// global needed for tracking keypress counts.
+#ifdef APPLE_KSA_MODE
+  int keycount = 0;
+#endif
+
 /// =============================
+/// Function Declarations
+
+// ----------
 
 // animation routine, meant to be called once per frame.
 bool capsAnim(bool restart=false) {
@@ -135,13 +151,14 @@ bool capsAnim(bool restart=false) {
   return true;
 }
 
-// wrap it to get the right function template to suppress a compiler warning
+// wrap the previous function to suppress a compiler warning about f'n prototypes
 bool capsAnimTimer(void *) {
   return capsAnim(false);
 }
 
 /// =============================
 
+// run of the mill setup() block
 void setup() {
   // configure the IO pins
   pinMode(pinLed, OUTPUT);
@@ -155,7 +172,7 @@ void setup() {
     oledFill(&ssoled, 0x0, 1);
     oledWriteString(&ssoled, 0,0,0,(char *)"CAPSLOCK", FONT_STRETCHED, 0, 1);
     oledWriteString(&ssoled, 0,0,2,(char *)" me@gavitron.com", FONT_NORMAL, 0, 1);
-    oledWriteString(&ssoled, 0,0,3,(char *)"                v1.03", FONT_SMALL, 0, 1);
+    oledWriteString(&ssoled, 0,0,3,(char *)"                v1.04", FONT_SMALL, 0, 1);
     oledWriteString(&ssoled, 0,0,3,msgs[rc], FONT_SMALL, 0, 1);
     oledSetBackBuffer(&ssoled, ucBackBuffer);
     delay(3000);
@@ -166,16 +183,24 @@ void setup() {
   BootKeyboard.begin();
 }
 
-/// =============================
+// ----------
 
+// main arduino loop
 void loop() {
   // state trackers so we're only acting on state changes
   static uint8_t prev_led_state = -1;
   static uint8_t led_state = -1;
+//  char temp_buf[50];
 
   // when the button is pressed, send a caps-lock key event to the host
   if (!digitalRead(pinButton)) {
-    #ifdef APPLE_KSA_MODE
+    //char * foo;
+//    sprintf(temp_buf,"N: %02d.    ",pinButton);
+//    oledFill(&ssoled, 0x0, 1);
+//    oledWriteString(&ssoled, 0,0,0,temp_buf, FONT_STRETCHED, 0, 1);
+//    oledSetBackBuffer(&ssoled, ucBackBuffer);
+
+#ifdef APPLE_KSA_MODE
     switch (keycount++) {
       case 0:
         BootKeyboard.write('z');
@@ -184,11 +209,11 @@ void loop() {
         BootKeyboard.write('/');
         break;
       default:
-    #endif
         BootKeyboard.write(KEY_CAPS_LOCK);
-    #ifdef APPLE_KSA_MODE
     }
-    #endif
+#else
+      BootKeyboard.write(KEY_CAPS_LOCK);
+#endif
     delay(250);  // lazy debouncer
   }
 
