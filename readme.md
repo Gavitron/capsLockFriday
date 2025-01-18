@@ -8,4 +8,14 @@ So every friday in slack, we get to some silliness, and *somebody* thought it wo
 
 of course, if you are going to celebrate with capslock, you need a celebratory caps lock button.
 
-this is the firmware so far,  more to follow.
+this repo holds the firmware and design files.
+
+
+[This is the unboxing video:](https://photos.app.goo.gl/a2avYNw9kLZ7bcLPA)
+
+
+Thanks to:
+
+ * (https://github.com/rsheldiii/KeyV2)
+
+ * (https://festi.info/boxes.py/Console2)
